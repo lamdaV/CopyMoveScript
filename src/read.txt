@@ -1,0 +1,3 @@
+/Users/lamd/Desktop/TestScripts/HelloWorldTest.py
+/Users/lamd/Desktop/TestCopyScript
+HelloWorldTest.py
