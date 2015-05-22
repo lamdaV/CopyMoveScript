@@ -13,3 +13,7 @@ Automated Grading Script. This is a similar to AutomatedPythonTest. It allows in
 ``` 
 $ python CopyMove.py
 ```
+- The test results should be as follows:
+  - Fail
+  - Pass
+  - Pass
