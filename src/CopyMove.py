@@ -18,7 +18,7 @@ import subprocess
 
 def main():
     """ 
-        Calls the   TEST   functions in this module.
+        Runs the script.
     """
     # Constants.
     SOURCE_LOCATION = 0
