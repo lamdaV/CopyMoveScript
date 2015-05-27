@@ -1,6 +1,9 @@
 # CopyMoveScript
 Automated Grading Script. This is a similar to AutomatedPythonTest. It allows instructors to hide the UnitTest case from the students. Unfortunately, doing so will remove the possibility of immediate feedback. Therefore, a combination of the two may be preferrable as students may have a seperate UnitTest and the instructor may have a primary UnitTest for grading purposes. This allows for both immediate feedback and the ability to hide certain test cases.
 
+# Bugs:
+- If the user moves through too quickly through the execution of the UnitTest, the script will stall out and produce errors. Adding a timer/delay may resolve this.
+
 # How To Use
 - Download the repository.  
 - Move the testSetup folders to a desired location.
