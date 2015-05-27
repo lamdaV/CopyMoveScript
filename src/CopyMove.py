@@ -15,6 +15,7 @@ Written by: lamd.
 import os
 import shutil
 import subprocess
+import time
 
 def main():
     """ 
@@ -69,6 +70,7 @@ def removeUnitTest(destinations):
         os.remove(fileName)
         fileName = destinations[k] + "/__pycache__"
         shutil.rmtree(fileName)
+        time.sleep(1)
 
 def executeUnitTest(destinations):
     """
@@ -79,10 +81,13 @@ def executeUnitTest(destinations):
     """
 
     for k in range(1, len(destinations)):
+        # Prints name of file (hopefully the student's name).
+        print()
         print(destinations[k].replace(rootDirectory + "/", ""))
         fileName = destinations[k] + "/" + unitTestName
         subprocess.call(fileName, shell=True)
         input("Press Enter key to continue...")
+        time.sleep(1)
 
 def copyTestToDestination(destinations):
     """
