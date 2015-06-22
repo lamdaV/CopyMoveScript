@@ -58,19 +58,36 @@ def main():
 
     print("Completed")
 
-def removeUnitTest(destinations):
+def copyTest(destination):
     """
-        Remove the UnitTest from the directories and any generated files/directories.
+        Copies the UnitTest file to the given destination.
+        
+        Precondtions:
+            :type destination :str
+    """
+    shutil.copy(source, destination)
+
+def generateDestinationList():
+    """
+        Generates a list of files at the specified Destination.
+        
+        Preconditions:
+            :type location :str
+    """
+    destinations = []
+    for root, _, _ in os.walk(directoryOfFiles):
+        destinations.append((str(root).replace("\\", "/")))
+    return destinations
+
+def copyTestToDestination(destinations):
+    """
+        Copies the UnitTest case to the file location.
         
         Preconditions:
             :type destinations :list
     """
     for k in range(1, len(destinations)):
-        fileName = destinations[k] + "/" + unitTestName
-        os.remove(fileName)
-        fileName = destinations[k] + "/__pycache__"
-        shutil.rmtree(fileName)
-        time.sleep(1)
+        copyTest(destinations[k])
 
 def executeUnitTest(destinations):
     """
@@ -89,36 +106,20 @@ def executeUnitTest(destinations):
         input("Press Enter key to continue...")
         time.sleep(1)
 
-def copyTestToDestination(destinations):
+def removeUnitTest(destinations):
     """
-        Copies the UnitTest case to the file location.
+        Remove the UnitTest from the directories and any generated files/directories.
         
         Preconditions:
             :type destinations :list
     """
+    print("Removing Unit Tests...")
     for k in range(1, len(destinations)):
-        copyTest(destinations[k])
-
-def generateDestinationList():
-    """
-        Generates a list of files at the specified Destination.
-        
-        Preconditions:
-            :type location :str
-    """
-    destinations = []
-    for root, _, _ in os.walk(directoryOfFiles):
-        destinations.append((str(root).replace("\\", "/")))
-    return destinations
-
-def copyTest(destination):
-    """
-        Copies the UnitTest file to the given destination.
-        
-        Precondtions:
-            :type destination :str
-    """
-    shutil.copy(source, destination)
+        fileName = destinations[k] + "/" + unitTestName
+        os.remove(fileName)
+        fileName = destinations[k] + "/__pycache__"
+        shutil.rmtree(fileName)
+        time.sleep(1)
 
 #-----------------------------------------------------------------------
 # If this module is running at the top level (as opposed to being
